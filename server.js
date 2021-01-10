@@ -108,8 +108,8 @@ function linedraw(socketId, nama_file) {
         io.to(socketId).emit("hasil", {
           error: false,
           url: {
-            svg: `http://localhost:4755/output/${nama_file}.svg`,
-            png: `http://localhost:4755/output/${nama_file}.png`,
+            svg: `output/${nama_file}.svg`,
+            png: `output/${nama_file}.png`,
           },
           from: "linedraw",
         });

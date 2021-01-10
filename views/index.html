@@ -145,7 +145,7 @@
     <script src="socket.io/socket.io.js"></script>
     <script>
       let socketId = "";
-      const socket = io();
+      const socket = io('https://dev.untan.ac.id', {path: '/sketch/socket.io'});
 
       socket.on("connect", () => {
         socketId = socket.id;
@@ -199,7 +199,7 @@
         const formData = new FormData();
         formData.append("foto", files[0]);
 
-        fetch(`/${socketId}`, {
+        fetch(`/sketch/${socketId}`, {
           method: "POST",
           body: formData,
         })
