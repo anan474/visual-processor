@@ -152,12 +152,12 @@
 
       console.log(root_path, frontend_url);
       let socketId = "";
-      const socket = io(frontend_url, {
-        path: `${root_path}socket.io`,
-      });
+      console.log("url soket,", frontend_url, `${root_path}socket.io`)
+      const socket = io(frontend_url, {path: `${root_path}socket.io`});
 
       socket.on("connect", () => {
         socketId = socket.id;
+	console.log('koneksi soket sebagai: ',socket.id)
       });
 
       const log_view_container = document.getElementById("log_view_container");
@@ -208,7 +208,10 @@
         const formData = new FormData();
         formData.append("foto", files[0]);
 
-        fetch(`${root_path}${socketId}`, {
+        const post_path = `${root_path}${socketId}`;
+        console.log(post_path);
+
+        fetch(post_path, {
           method: "POST",
           body: formData,
         })
