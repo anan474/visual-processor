@@ -147,9 +147,13 @@
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
     <script>
+      const root_path = "<%-root_path%>";
+      const frontend_url = "<%-frontend_url%>";
+
+      console.log(root_path, frontend_url);
       let socketId = "";
-      const socket = io("https://dev.untan.ac.id", {
-        path: "/sketch/socket.io",
+      const socket = io(frontend_url, {
+        path: `${root_path}socket.io`,
       });
 
       socket.on("connect", () => {
@@ -204,7 +208,7 @@
         const formData = new FormData();
         formData.append("foto", files[0]);
 
-        fetch(`/sketch/${socketId}`, {
+        fetch(`${root_path}${socketId}`, {
           method: "POST",
           body: formData,
         })

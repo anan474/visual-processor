@@ -128,7 +128,10 @@ function linedraw(socketId, nama_file) {
 
 //routing
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs", {
+    root_path: process.env.ROOT || "",
+    frontend_url: process.env.FRONTEND || "",
+  });
 });
 
 app.post("/:socketId", function (req, res) {
@@ -162,5 +165,6 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(process.env.PORT || 3000);
-console.log(`server jalan di port ${app.get("port")}`);
+const port = process.env.PORT || 3000;
+http.listen(port);
+console.log(`server jalan di port ${port}`);
