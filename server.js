@@ -134,6 +134,12 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/download/:filename", (req, res) => {
+  const filename = req.params.filename.split("/");
+  console.log(req.params.filename, filename);
+  res.download(`public/output/${filename[filename.length - 1]}`);
+});
+
 app.post("/:socketId", function (req, res) {
   if (!req.params.socketId) {
     return res.status(400).send("Koneksi gagal, muat ulang halaman.");

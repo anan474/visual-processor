@@ -152,12 +152,12 @@
 
       console.log(root_path, frontend_url);
       let socketId = "";
-      console.log("url soket,", frontend_url, `${root_path}socket.io`)
-      const socket = io(frontend_url, {path: `${root_path}socket.io`});
+      console.log("url soket,", frontend_url, `${root_path}socket.io`);
+      const socket = io(frontend_url, { path: `${root_path}socket.io` });
 
       socket.on("connect", () => {
         socketId = socket.id;
-	console.log('koneksi soket sebagai: ',socket.id)
+        console.log("koneksi soket sebagai: ", socket.id);
       });
 
       const log_view_container = document.getElementById("log_view_container");
@@ -180,14 +180,14 @@
             <div class="mdl-card__actions mdl-card--border">
               <button
                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                onclick = "open_new_tab('${msg.url.png}')";
+                onclick = "download_hasil('${msg.url.png}')";
               >
                 <i class="material-icons">download</i>
                 PNG
               </button>
               <button
                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                onclick = "open_new_tab('${msg.url.svg}')";
+                onclick = "download_hasil('${msg.url.svg}')";
               >
                 <i class="material-icons">download</i>
                 SVG
@@ -224,9 +224,9 @@
           });
       };
 
-      const open_new_tab = (url) => {
-        const open_link = window.open("", "_blank");
-        open_link.location = url;
+      const download_hasil = (url) => {
+        url = url.replace("output", "download");
+        window.open(url, "_self");
       };
     </script>
   </body>
