@@ -14,8 +14,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    ;
-
     <style>
       body {
         background: #7e57c2;
@@ -92,12 +90,17 @@
         left: 0;
         margin: auto;
         margin-top: 24px;
+        margin-bottom: 24px;
         overflow-y: scroll;
         background-color: black;
         color: green;
         height: 100px;
         max-height: 100px;
         padding: 12px;
+      }
+      .love {
+        color: red;
+        font-size: 14px;
       }
     </style>
   </head>
@@ -107,7 +110,7 @@
       <div class="container mdl-shadow--6dp">
         <h2>Gambar ke Sketsa</h2>
         <h6>
-          Dengan cinta oleh
+          Dengan <i class="material-icons love">favorite</i> oleh
           <a href="https://github.com/anan474" target="_blank">
             Agung Tuah Ananda
           </a>
@@ -145,7 +148,9 @@
     <script src="socket.io/socket.io.js"></script>
     <script>
       let socketId = "";
-      const socket = io('https://dev.untan.ac.id', {path: '/sketch/socket.io'});
+      const socket = io("https://dev.untan.ac.id", {
+        path: "/sketch/socket.io",
+      });
 
       socket.on("connect", () => {
         socketId = socket.id;
