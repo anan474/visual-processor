@@ -2,3 +2,5 @@ node_modules
 input/*
 public/output/*
 .env
+
+trash
