@@ -98,6 +98,9 @@ function linedraw(socketId, nama_file) {
 
     sharp(`./public/output/${nama_file}.svg`)
       .png()
+      .flatten({
+         background: '#ffffff'
+      })
       .toFile(`./public/output/${nama_file}.png`)
       .then(function (info) {
         console.log(info);
