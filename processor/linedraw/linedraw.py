@@ -14,9 +14,9 @@ export_path = "output/out.svg"
 draw_contours = True
 draw_hatch = True
 show_bitmap = False
-resolution = 1024
+resolution = 2048
 hatch_size = 16
-contour_simplify = 2
+contour_simplify = 1
 
 try:
     import numpy as np
